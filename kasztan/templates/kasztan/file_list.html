@@ -1,0 +1,26 @@
+{% extends 'kasztan/base.html' %}
+{% block content %}
+    <h2>Files list</h2>
+    <p>
+        <a href="upload">Upload</a>
+    </p>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Download</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{file.title}}</td>
+                <td>{{file.description}}</td>
+                <td><a href="{{file.file.url}}" target="_blank">Pobierz</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

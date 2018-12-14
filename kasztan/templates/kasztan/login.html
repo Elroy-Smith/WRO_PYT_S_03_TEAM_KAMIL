@@ -1,0 +1,18 @@
+{% extends 'kasztan/base.html' %}
+
+{% block content %}
+
+    {% if username == AnonymousUser %}
+        Nie znaleziono użytkownika!
+    {% endif %}
+
+
+  <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Zaloguj">
+  </form>
+
+    <p><a href="/register"> Zarejestruj się</a></p>
+
+{% endblock %}

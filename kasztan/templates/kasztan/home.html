@@ -1,0 +1,26 @@
+{% extends 'kasztan/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+	{% block head %}{% endblock %}
+</head>
+<body>
+	{% block content %}
+        <h1>Projekt kasztaniaków</h1>
+        <h2>Wszystkie zdjęcia w kolejności od najnowszego</h2>
+	
+		{% for picture in pictures %}
+		<img src="media/{{ picture.file }}">
+			<p>Dwa najnowsze komentarze:</p>
+			{% for comment in comments|slice:"2" %}
+				{{comment.comment_text}}
+			{% endfor %}
+		{% endfor %}
+		<a href="http://127.0.0.1:8000/addPhoto">Dodaj zdjęcie</a>
+	{% endblock %}
+</body>
+</html>
+

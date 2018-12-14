@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head><meta charset="utf-8"></head>
+    <body>
+    {% block header %}
+    {% if username != AnonymousUser %}
+        <p>Witaj {{username}} <a href="http://127.0.0.1:8000/logout">Logout</a></p>
+    {% else %}
+        Nie znaleziono użytkownika!<a href="http://127.0.0.1:8000">Login</a>
+    {% endif %}
+    {% endblock %}
+    {% block content %}
+        <h1>Projekt kasztaniaków</h1>
+    {% endblock %}
+    {% block footer %}
+        <h4>Wersja 0.0000000001</h4>
+    {% endblock %}
+    </body>
+</html>
